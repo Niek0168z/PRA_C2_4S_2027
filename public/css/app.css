@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -50,7 +50,13 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure, header, hgroup, main, nav, section {
+    display: block;
+}
+
+footer{
+    margin-top: auto;
+    text-align: center;
     display: block;
 }
 
@@ -63,6 +69,9 @@ body {
     color: #212529;
     text-align: left;
     background-color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -535,7 +544,11 @@ pre code {
     overflow-y: scroll;
 }
 
-.container,
+.container{
+    width: 95%;
+    margin: 0 auto;
+}
+
 .container-fluid,
 .container-xl,
 .container-lg,
@@ -573,6 +586,7 @@ pre code {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    justify-content: center;
 }
 
 .no-gutters {
@@ -10037,5 +10051,31 @@ a.text-dark:hover, a.text-dark:focus {
     background-color: #F0F2F4;
     border-radius: 0.25rem;
     padding: 0.1rem;
+}
+/* Sticky footer */
+html, body {
+    height: 100%;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > .container {
+    flex: 1 0 auto;
+}
+
+.site-footer {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    background-color: var(--dark, #343a40);
+    color: #fff;
+}
+
+.site-footer a {
+    color: #fff;
 }
