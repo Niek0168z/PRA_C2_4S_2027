@@ -361,7 +361,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-    font-size: 2.25rem;
+    font-size: 3rem;
+    font-weight: bolder;
 }
 
 h2, .h2 {
@@ -10024,4 +10025,17 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 0 5px;
     color: #ccc;
     content: "/ ";
+}
+
+.brand-list{
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+.brand-color{
+    color: black;
+    background-color: #F0F2F4;
+    border-radius: 0.25rem;
+    padding: 0.1rem;
+
 }

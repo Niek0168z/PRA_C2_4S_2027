@@ -21,10 +21,12 @@
 
     <div class="container">
         <!-- Example row of columns -->
+
         <div class="row">
 
+
             @foreach($brands->chunk($chunk_size) as $chunk)
-                <div class="col-md-4">
+                <div class="col-md-4 brand-list">
 
                     <ul>
                         @foreach($chunk as $brand)
@@ -41,7 +43,7 @@
                             ?>
 
                             <li>
-                                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
+                                <a class="brand-color" href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/">{{ $brand->name }}</a>
                             </li>
                         @endforeach
                     </ul>
