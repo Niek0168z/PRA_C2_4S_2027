@@ -544,9 +544,10 @@ pre code {
 }
 
 .container{
-    max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
 }
+
 .container-fluid,
 .container-xl,
 .container-lg,
