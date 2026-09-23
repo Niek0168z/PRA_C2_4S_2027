@@ -10044,6 +10044,7 @@ a.text-dark:hover, a.text-dark:focus {
 .brand-list{
     background-color: #e9ecef;
     border-radius: 0.25rem;
+    margin-bottom: 1rem;
 }
 
 .brand-color{
@@ -10078,4 +10079,23 @@ body > .container {
 
 .site-footer a {
     color: #fff;
+}
+
+.footer-about-us{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-us{
+    text-align: right;
+    padding: auto;
+}
+
+.footer-socials img{
+    width: 5%;
+}
+.facebook-logo{
+    background-color: white;
+    border-radius: 0.2rem;
 }
