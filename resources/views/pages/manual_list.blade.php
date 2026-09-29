@@ -17,18 +17,9 @@
 
     <div class="manual-grid">
         @foreach ($manuals as $manual)
-        <a href="{{ $manual->locally_available
-                    ? "/{$brand->id}/{$brand->getNameUrlEncodedAttribute()}/{$manual->id}/"
-                    : $manual->url }}"
-            @if(!$manual->locally_available) target="new" @endif
-            class="manual-item">
+        <a href=" /{{$brand->id}}/{{$brand->getNameUrlEncodedAttribute()}}/{{$manual->id}}/" alt = "{{ $manual->name }}" title="{{$manual->name}}">{{$manual->name}}</a>({{ $manual->filesize_human_readable }})
 
-            {{ $manual->name }}
 
-            @if ($manual->locally_available)
-                <span class="manual-size">{{ $manual->filesize_human_readable }}</span>
-            @endif
-        </a>
         @endforeach
     </div>
 

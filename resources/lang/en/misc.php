@@ -22,5 +22,6 @@ return [
 'view_manual' => "Directly view your manual",
 'view_manual_alt' => "Directly view your manual",
 'all_brands' => "All brands",
+'views' => 'Times visited: :count',
 
 ];
