@@ -19,8 +19,11 @@
     $chunk_size = ceil($size / $columns);
     ?>
 
+    <x-top10 :manuals="$topManuals"/>
+
     <div class="container">
         <!-- Example row of columns -->
+
 
         <div class="row">
 

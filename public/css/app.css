@@ -10130,6 +10130,7 @@ body > .container {
     background-color: white;
     border-radius: 0.2rem;
 }
+<<<<<<< Updated upstream
 .forms{
     background-color: #F0F2F4;
     border-radius: 0.25rem;
@@ -10143,4 +10144,13 @@ body > .container {
 }
 .submit-button{
     padding: 1rem;
+=======
+
+.top10{
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+>>>>>>> Stashed changes
 }
