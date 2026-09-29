@@ -10141,11 +10141,6 @@ body > .container {
     display: flex;
     flex-direction: column;
 }
-/* .text-input{
-    display: flex;
-    justify-content: space-between;
-} */
-
 .submit-button{
     padding: 1rem;
 }
