@@ -22,6 +22,14 @@ return [
 'view_manual' => "Directly view your manual",
 'view_manual_alt' => "Directly view your manual",
 'all_brands' => "All brands",
+'aboutus' => "About us:",
 'views' => 'Times visited: :count',
-
+'firstname' => 'First name:',
+'lastname' => 'Last name:',
+'email' => 'Email:',
+'question' => 'Question',
+'complaint' => 'Complaint',
+'other' => 'Other',
+'reason' => 'Reason:',
+'sendbutton' => 'Send',
 ];

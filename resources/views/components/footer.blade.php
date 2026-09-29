@@ -3,9 +3,11 @@
 	<div class="container footer-about-us">
 		© {{ __('misc.copyright', ['year' => date('Y')]) }}
         <div class="about-us">
-            <p class="about-us-p">Over ons:</p>
+            <p class="about-us-p">{{ __('misc.aboutus')}}</p>
             <p>downloadyourmanual@email.com</p>
             <p>06 12345678</p>
+            <p><a href="contact">Contact</a></p>
+            <p>Socials:</p>
             <div class="footer-socials">
                 <a href="twitter.com"><img src="{{ asset('img/twitter.svg') }}" alt="Twitter"></a>
                 <a href="facebook.com"><img src="{{ asset('img/facebook.svg') }}" alt="Facebook" class="facebook-logo"></a>

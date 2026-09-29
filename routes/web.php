@@ -28,6 +28,7 @@ Productcat:		/category/12/Computers/
 use App\Models\Brand;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
@@ -56,3 +57,6 @@ Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 's
 
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
+
+// Contact
+Route::get('contact', [ContactController::class, 'contact']);

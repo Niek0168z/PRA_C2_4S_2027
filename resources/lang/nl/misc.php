@@ -22,6 +22,14 @@ return [
 'view_manual' => "Bekijk direct je handleiding",
 'view_manual_alt' => "Bekijk direct je handleiding",
 'all_brands' => "Alle merken",
-'views' => "Aantal keer bekeken: :count"
-
+'aboutus' => "Over ons: ",
+'views' => "Aantal keer bekeken: :count",
+'firstname' => 'Voornaam:',
+'lastname' => 'Achternaam:',
+'email' => 'Email:',
+'question' => 'Vraag',
+'complaint' => 'Klacht',
+'other' => 'Anders',
+'reason' => 'Reden:',
+'sendbutton' => 'Verzenden',
 ];
