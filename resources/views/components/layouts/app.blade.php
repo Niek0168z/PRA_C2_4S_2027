@@ -12,6 +12,7 @@
 
         <div class="col-md-8">
             <x-header/>
+            <x-names/>
 
             <ul class="breadcrumb">
                 <li><a href="/" title="{{ __('misc.home_alt') }}"
