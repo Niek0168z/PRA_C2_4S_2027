@@ -10130,3 +10130,22 @@ body > .container {
     background-color: white;
     border-radius: 0.2rem;
 }
+.forms{
+    background-color: #F0F2F4;
+    border-radius: 0.25rem;
+    padding: 0.1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.form-radio, .form-reason, .text-input{
+    display: flex;
+    flex-direction: column;
+}
+/* .text-input{
+    display: flex;
+    justify-content: space-between;
+} */
+
+.submit-button{
+    padding: 1rem;
+}
