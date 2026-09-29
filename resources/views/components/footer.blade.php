@@ -1,7 +1,16 @@
 
 <footer class="site-footer">
-	<div class="container">
+	<div class="container footer-about-us">
 		© {{ __('misc.copyright', ['year' => date('Y')]) }}
+        <div class="about-us">
+            <p class="about-us-p">Over ons:</p>
+            <p>downloadyourmanual@email.com</p>
+            <p>06 12345678</p>
+            <div class="footer-socials">
+                <a href="twitter.com"><img src="{{ asset('img/twitter.svg') }}" alt="Twitter"></a>
+                <a href="facebook.com"><img src="{{ asset('img/facebook.svg') }}" alt="Facebook" class="facebook-logo"></a>
+            </div>
+        </div>
 	</div>
 </footer>
 
