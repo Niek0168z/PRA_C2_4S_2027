@@ -15,16 +15,21 @@
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
 
+    <div class="manual-grid">
         @foreach ($manuals as $manual)
+        <a href="{{ $manual->locally_available
+                    ? "/{$brand->id}/{$brand->getNameUrlEncodedAttribute()}/{$manual->id}/"
+                    : $manual->url }}"
+            @if(!$manual->locally_available) target="new" @endif
+            class="manual-item">
+
+            {{ $manual->name }}
 
             @if ($manual->locally_available)
-                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" class="btn btn-primary mb-2" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-                ({{$manual->filesize_human_readable}})
-            @else
-                <a href="{{ $manual->url }}" target="new" class="btn btn-primary mb-2" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
+                <span class="manual-size">{{ $manual->filesize_human_readable }}</span>
             @endif
-
-            <br />
+        </a>
         @endforeach
+    </div>
 
 </x-layouts.app>
