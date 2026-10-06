@@ -16,11 +16,12 @@
 
 
     <h1>{{ $brand->name }}</h1>
+    <x-top5pop :manuals="$topManuals"/>
 
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
-    @if(isset($topManuals) && $topManuals->isNotEmpty())
+    {{-- @if(isset($topManuals) && $topManuals->isNotEmpty())
         <h3>Top 5 populairste handleidingen</h3>
 
         <ul>
@@ -28,7 +29,7 @@
                 <li>[{{ $manual->type }}]</li>
             @endforeach
         </ul>
-    @endif
+    @endif --}}
 
 
     <div class="manual-grid">

@@ -13,9 +13,11 @@ class ManualController extends Controller
         $brand = Brand::findOrFail($brand_id);
         $manual = Manual::findOrFail($manual_id);
 
+        // Verhoog de counter
         $manual->increment('counter');
 
-        $topManuals = Manual::with('brand')
+        // Top 5 manuals van dit merk
+        $topManuals = Manual::where('brand_id', $brand_id)
             ->orderByDesc('counter')
             ->take(5)
             ->get();

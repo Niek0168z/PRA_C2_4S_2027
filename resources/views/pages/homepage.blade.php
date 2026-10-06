@@ -20,7 +20,7 @@
     ?>
 
     <x-top10 :manuals="$topManuals"/>
-    <x-top5pop :manuals="$topManuals"/>
+
 
     <div class="container">
         <!-- Example row of columns -->

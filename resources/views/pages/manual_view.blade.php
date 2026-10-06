@@ -10,7 +10,6 @@
         <li><a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="View manual for '{{$brand->name}} '" title="View manual for '{{$brand->name}} {{ $manual->name }}'">View</a></li>
     </x-slot:breadcrumb>
 
-    <x-top5pop :manuals="$topManuals"/>
 
     <h1>{{ $brand->name }} - {{ $manual->name }}</h1>
     <p>{{ __('misc.views', ['count' => $manual->counter])}}</p>
