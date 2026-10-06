@@ -15,9 +15,15 @@ class ManualController extends Controller
 
         $manual->increment('counter');
 
+        $topManuals = Manual::with('brand')
+            ->orderByDesc('counter')
+            ->take(5)
+            ->get();
+
         return view('pages/manual_view', [
             "manual" => $manual,
             "brand" => $brand,
+            "topManuals" => $topManuals
         ]);
     }
 }

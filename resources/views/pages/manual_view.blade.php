@@ -10,8 +10,11 @@
         <li><a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="View manual for '{{$brand->name}} '" title="View manual for '{{$brand->name}} {{ $manual->name }}'">View</a></li>
     </x-slot:breadcrumb>
 
+    <x-top5pop :manuals="$topManuals"/>
+
     <h1>{{ $brand->name }} - {{ $manual->name }}</h1>
     <p>{{ __('misc.views', ['count' => $manual->counter])}}</p>
+
 
     @if ($manual->locally_available)
         <iframe src="{{ $manual->url }}" width="780" height="600" frameborder="0" marginheight="0" marginwidth="0">

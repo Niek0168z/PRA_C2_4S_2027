@@ -5,7 +5,13 @@
     </x-slot:head>
 
     <x-slot:breadcrumb>
-        <li><a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/" alt="Manuals for '{{$brand->name}}'" title="Manuals for '{{$brand->name}}'">{{ $brand->name }}</a></li>
+        <li>
+            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/"
+                alt="Manuals for '{{ $brand->name }}'"
+                title="Manuals for '{{ $brand->name }}'">
+                {{ $brand->name }}
+            </a>
+        </li>
     </x-slot:breadcrumb>
 
 
@@ -14,12 +20,25 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
+    @if(isset($topManuals) && $topManuals->isNotEmpty())
+        <h3>Top 5 populairste handleidingen</h3>
+
+        <ul>
+            @foreach($topManuals as $manual)
+                <li>[{{ $manual->type }}]</li>
+            @endforeach
+        </ul>
+    @endif
+
 
     <div class="manual-grid">
         @foreach ($manuals as $manual)
-        <a href=" /{{$brand->id}}/{{$brand->getNameUrlEncodedAttribute()}}/{{$manual->id}}/" alt = "{{ $manual->name }}" title="{{$manual->name}}">{{$manual->name}}</a>({{ $manual->filesize_human_readable }})
-
-
+            <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/"
+                alt="{{ $manual->name }}"
+                title="{{ $manual->name }}">
+                {{ $manual->name }}
+            </a>
+            ({{ $manual->filesize_human_readable }})
         @endforeach
     </div>
 
