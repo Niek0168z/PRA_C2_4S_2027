@@ -10156,3 +10156,6 @@ body > .container {
     border-radius: 0.5rem;
     border-color: red;
 }
+.manual-list-delete{
+    padding: 1rem;
+}

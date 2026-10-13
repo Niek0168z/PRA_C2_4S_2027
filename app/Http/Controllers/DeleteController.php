@@ -16,9 +16,9 @@ class DeleteController extends Controller
         return view('pages/delete')->with('manuals', $manual)->with('brands', $brand);
     }
 
-    public function delete()
+    public function delete($manualId)
     {
-        $manualId = $_GET['manualId'];
+        //$manualId = $_POST['manualId'];
 
         $manual = Manual::findOrFail($manualId);
         $manual -> delete();

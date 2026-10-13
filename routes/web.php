@@ -70,4 +70,4 @@ Route::get('contact', [ContactController::class, 'contact']) -> name("contact");
 // Delete
 Route::get('delete', [DeleteController::class, 'show']) -> name("delete");
 
-Route::get('delete_manual', [DeleteController::class, 'delete']);
+Route::delete('delete_manual/{manualId}', [DeleteController::class, 'delete']);
