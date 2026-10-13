@@ -10151,3 +10151,8 @@ body > .container {
     padding: 1rem 1.5rem;
     margin-bottom: 1.5rem;
 }
+.delete-button{
+    background-color: red;
+    border-radius: 0.5rem;
+    border-color: red;
+}

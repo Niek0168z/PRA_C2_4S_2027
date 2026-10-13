@@ -18,6 +18,15 @@ class DeleteController extends Controller
 
     public function delete()
     {
-        
+        $manualId = $_GET['manualId'];
+
+        $manual = Manual::findOrFail($manualId);
+        $manual -> delete();
+        $manual -> update();
+
+        $manualName = Manual::all();
+        $brand = Brand::all();
+
+        return view('pages/delete')->with('manuals', $manualName)->with('brands', $brand);
     }
 }

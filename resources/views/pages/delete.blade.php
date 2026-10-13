@@ -1,10 +1,13 @@
 <x-layouts.app>
-    <p>Verwijderen</p>
+    <h2>Verwijderen</h2>
     <ol class="mb-0">
         @foreach ($manuals as $manual)
             <li>
-                {{-- <a href="/{{ $manual->brand->id }}/{{ $manual->brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" title="{{ $manual->brand->name }}: {{ $manual->name }}">{{ $manual->brand->name }}: {{ $manual->name }}</a> --}}
-                <p>{{ $manual->brand->name }}: {{ $manual->name }} <button>tets</button></p>
+                <form action="delete_manual">
+                    <label for="">{{ $manual->brand->name }}: {{ $manual->name }}</label>
+                    <input type="hidden" name="manualId" value="{{ $manual->id }}">
+                    <input type="submit" value="Verwijderen" class="delete-button">
+                </form>
             </li>
         @endforeach
     </ol>
