@@ -21,25 +21,17 @@
 
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
-    {{-- @if(isset($topManuals) && $topManuals->isNotEmpty())
-        <h3>Top 5 populairste handleidingen</h3>
-
-        <ul>
-            @foreach($topManuals as $manual)
-                <li>[{{ $manual->type }}]</li>
-            @endforeach
-        </ul>
-    @endif --}}
 
 
     <div class="manual-grid">
         @foreach ($manuals as $manual)
             <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/"
+                class="manual-item"
                 alt="{{ $manual->name }}"
                 title="{{ $manual->name }}">
                 {{ $manual->name }}
+                <span class="manual-size">({{ $manual->filesize_human_readable }})</span>
             </a>
-            ({{ $manual->filesize_human_readable }})
         @endforeach
     </div>
 

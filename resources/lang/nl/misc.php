@@ -24,6 +24,8 @@ return [
 'all_brands' => "Alle merken",
 'aboutus' => "Over ons: ",
 'views' => "Aantal keer bekeken: :count",
+'short_link' => "Korte link:",
+'link_copied' => "Gekopieerd!",
 'firstname' => 'Voornaam:',
 'lastname' => 'Achternaam:',
 'email' => 'Email:',

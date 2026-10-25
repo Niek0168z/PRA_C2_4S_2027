@@ -28,4 +28,12 @@ class ManualController extends Controller
             "topManuals" => $topManuals
         ]);
     }
+
+    public function redirectShortLink(string $code)
+    {
+        $manual = Manual::where('short_code', $code)->firstOrFail();
+        $brand = $manual->brand;
+
+        return redirect("/{$brand->id}/{$brand->getNameUrlEncodedAttribute()}/{$manual->id}/");
+    }
 }

@@ -27,7 +27,36 @@ class Manual extends Model
 
     public function types()
     {
-        return $this->belongsToMany(Type::class, 'manual_type', 'manual_id', 'type_id');
+        return $this->belongsToMany(Type::class, 'manual_type', 'manual_id', 'type_id');}
+    // Returns the manual's short link code, generating and persisting one if it doesn't have one yet.
+    // Since the code is stored once generated, every caller gets the same code back.
+    public function getOrCreateShortCode(): string
+    {
+        if ($this->short_code) {
+            return $this->short_code;
+        }
+
+        do {
+            $code = $this->generateShortCode();
+        } while (static::where('short_code', $code)->exists());
+
+        $this->short_code = $code;
+        $this->save();
+
+        return $this->short_code;
+    }
+
+    private function generateShortCode(): string
+    {
+        // Avoids visually ambiguous characters (0/O, 1/l/I) so the code is easy to read and share.
+        $chars = 'abcdefghjkmnpqrstuvwxyz23456789';
+
+        $code = '';
+        for ($i = 0; $i < 4; $i++) {
+            $code .= $chars[random_int(0, strlen($chars) - 1)];
+        }
+
+        return $code;
     }
 
 

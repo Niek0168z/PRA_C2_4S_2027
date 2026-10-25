@@ -24,6 +24,8 @@ return [
 'all_brands' => "All brands",
 'aboutus' => "About us:",
 'views' => 'Times visited: :count',
+'short_link' => 'Short link:',
+'link_copied' => 'Copied!',
 'firstname' => 'First name:',
 'lastname' => 'Last name:',
 'email' => 'Email:',
