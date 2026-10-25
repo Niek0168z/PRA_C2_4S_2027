@@ -4,6 +4,15 @@
             <a class="navbar-brand" href="/" title="{{ __('misc.home_alt') }}">{{ __('misc.homepage_title') }}</a>
         </div>
         <div id="navbar" class="form-inline">
+            @auth
+                <a href="{{ route('admin.manuals.create') }}">Beheer</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="btn btn-link" type="submit">Uitloggen</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}">Inloggen</a>
+            @endauth
 
             <script>
                 (function () {

@@ -35,6 +35,8 @@ use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\AdminManualController;
+use App\Http\Controllers\LoginController;
 
 // Homepage
 Route::get('/', function () {
@@ -43,6 +45,21 @@ Route::get('/', function () {
     return view('pages.homepage', compact('brands', 'topManuals'));
 })->name('home');
 
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'show'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate'])->middleware('throttle:5,1')->name('login.authenticate');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])
+        ->name('logout');
+});
+
+Route::get('/admin/manuals/create', [AdminManualController::class, 'create'])
+    ->name('admin.manuals.create');
+
+Route::post('/admin/manuals', [AdminManualController::class, 'store'])
+    ->name('admin.manuals.store');
 
 
 
@@ -65,3 +82,4 @@ Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 // Contact
 Route::get('contact', [ContactController::class, 'contact']) -> name("contact");
+

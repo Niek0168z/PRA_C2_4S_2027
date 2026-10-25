@@ -9,9 +9,25 @@ class Manual extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'brand_id',
+        'name',
+        'filesize',
+        'originUrl',
+        'filename',
+        'downloadedServer',
+        'counter',
+        'testcolumn',
+    ];
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class, 'manual_type', 'manual_id', 'type_id');
     }
 
 

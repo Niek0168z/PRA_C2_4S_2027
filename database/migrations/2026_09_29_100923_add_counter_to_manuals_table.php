@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('manuals', function (Blueprint $table) {
-            
+            $table->unsignedBigInteger('counter')->default(0);
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('manuals', function (Blueprint $table) {
-            //
+            $table->dropColumn('counter');
         });
     }
 };
