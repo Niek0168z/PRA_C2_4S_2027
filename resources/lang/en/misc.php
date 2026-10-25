@@ -32,4 +32,5 @@ return [
 'other' => 'Other',
 'reason' => 'Reason:',
 'sendbutton' => 'Send',
+'deletetext' => 'Delete'
 ];

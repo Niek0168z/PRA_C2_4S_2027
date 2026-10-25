@@ -30,6 +30,7 @@ use App\Models\Manual;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
@@ -82,4 +83,3 @@ Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 // Contact
 Route::get('contact', [ContactController::class, 'contact']) -> name("contact");
-
