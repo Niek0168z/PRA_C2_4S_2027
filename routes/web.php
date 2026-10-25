@@ -83,3 +83,7 @@ Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 // Contact
 Route::get('contact', [ContactController::class, 'contact']) -> name("contact");
+
+// Delete
+Route::get('delete', [DeleteController::class, 'show']) -> name("delete");
+Route::delete('delete_manual/{manualId}', [DeleteController::class, 'delete']);
