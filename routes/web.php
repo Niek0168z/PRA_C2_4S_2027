@@ -62,8 +62,6 @@ Route::get('/admin/manuals/create', [AdminManualController::class, 'create'])
 Route::post('/admin/manuals', [AdminManualController::class, 'store'])
     ->name('admin.manuals.store');
 
-
-
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);
 

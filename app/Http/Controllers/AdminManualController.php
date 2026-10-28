@@ -24,10 +24,12 @@ class AdminManualController extends Controller
         $validated = $request->validate([
             'brand_id' => ['required', 'integer', 'exists:brands,id'],
             'type_id' => [
-                'required',
+                'nullable',
+                'required_without:type_name',
                 'integer',
                 Rule::exists('types', 'id')->where('brand_id', $request->input('brand_id')),
             ],
+            'type_name' => ['nullable', 'required_without:type_id', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'filesize' => ['required', 'integer', 'min:0'],
             'originUrl' => ['required', 'url'],
@@ -37,6 +39,13 @@ class AdminManualController extends Controller
         ]);
 
         DB::transaction(function () use ($validated) {
+            $typeId = isset($validated['type_name'])
+                ? Type::firstOrCreate([
+                    'brand_id' => $validated['brand_id'],
+                    'name' => $validated['type_name'],
+                ])->id
+                : $validated['type_id'];
+
             $manual = Manual::create([
                 'brand_id' => $validated['brand_id'],
                 'name' => $validated['name'],
@@ -48,7 +57,7 @@ class AdminManualController extends Controller
                 'testcolumn' => $validated['testcolumn'] ?? null,
             ]);
 
-            $manual->types()->attach($validated['type_id']);
+            $manual->types()->attach($typeId);
         });
 
         return redirect()->route('admin.manuals.create')->with('status', 'De handleiding is toegevoegd.');

@@ -23,9 +23,6 @@
 
         <div class="form-group">
             <label for="type_id">Type</label>
-            @if ($types->isEmpty())
-                <p role="status">Er zijn nog geen typen beschikbaar. Voeg eerst typen aan de database toe.</p>
-            @endif
             <select class="form-control" id="type_id" name="type_id" required>
                 <option value="">Kies eerst een merk</option>
                 @foreach ($types as $type)
@@ -35,6 +32,14 @@
                 @endforeach
             </select>
             @error('type_id')
+                <p role="alert">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="type_name">Of voeg een nieuw type toe</label>
+            <input class="form-control" id="type_name" name="type_name" type="text" value="{{ old('type_name') }}" maxlength="255">
+            @error('type_name')
                 <p role="alert">{{ $message }}</p>
             @enderror
         </div>
@@ -107,7 +112,17 @@
             if (!typeSelect.selectedOptions[0]?.dataset.brandId || typeSelect.selectedOptions[0].dataset.brandId !== brandId) {
                 typeSelect.value = '';
             }
+
+            typeSelect.required = typeNameInput.value.trim() === '';
         }
+
+        const typeNameInput = document.getElementById('type_name');
+        typeNameInput.addEventListener('input', function () {
+            typeSelect.required = typeNameInput.value.trim() === '';
+            if (typeNameInput.value.trim() !== '') {
+                typeSelect.value = '';
+            }
+        });
 
         brandSelect.addEventListener('change', filterTypes);
         filterTypes();
